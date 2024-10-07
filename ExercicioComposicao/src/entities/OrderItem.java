@@ -4,13 +4,16 @@ public class OrderItem {
 	
 	private Integer quantidade;
 	private Double preco;
+	private Product produto;
+	
 	
 	public OrderItem() {
 	}
 
-	protected OrderItem(Integer quantidade, Double preco) {
+	public OrderItem(Integer quantidade, Double preco, Product produto) {
 		this.quantidade = quantidade;
 		this.preco = preco;
+		this.produto = produto;
 	}
 
 	public Integer getQuantidade() {
@@ -31,5 +34,12 @@ public class OrderItem {
 	
 	public Double subTotal() {
 		return quantidade * preco;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(produto.getNome() + ", $" + produto.getPreco() + ", Quantidade: " + quantidade + ", Subtotal: $" + subTotal() + "\n");
+		return sb.toString();
 	}
 }

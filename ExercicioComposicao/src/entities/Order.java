@@ -11,13 +11,12 @@ public class Order {
 	private LocalDate momento;
 	private OrderStatus status;
 	private List<OrderItem> items = new ArrayList<>();
+	private Client cliente;
 	
-	public Order() {
-	}
-
-	public Order(LocalDate momento, OrderStatus status) {
+	public Order(LocalDate momento, OrderStatus status, Client cliente) {
 		this.momento = momento;
 		this.status = status;
+		this.cliente = cliente;
 	}
 
 	public LocalDate getMomento() {
@@ -55,9 +54,20 @@ public class Order {
 		}
 		return total;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Hora do pedido: " + momento +" \n");
+		sb.append("Status: " + status+" \n");
+		sb.append("Cliente: " + cliente.getNome() + " - " + cliente.getEmail()+" \n");
+		sb.append("Itens: ");
+		for (OrderItem oIt : items) {
+			sb.append(oIt.toString());
+		}
+		sb.append("Total do pedido R$" + total());
+		
+		return sb.toString();
+	}
 
 }
