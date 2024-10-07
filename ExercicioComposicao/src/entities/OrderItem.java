@@ -32,7 +32,7 @@ public class OrderItem {
 		this.preco = preco;
 	}	
 	
-	public Double subTotal() {
+	public double subTotal() {
 		return quantidade * preco;
 	}
 
