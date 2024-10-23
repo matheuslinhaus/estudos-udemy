@@ -23,6 +23,12 @@ public class App {
 		for (Seller sl : list) {
 			System.out.println(sl);
 		}
+		
+		System.out.println("Seller All");
+		list = sellerDao.findAll();
+		for (Seller sl : list) {
+			System.out.println(sl);
+		}
 
 	}
 
