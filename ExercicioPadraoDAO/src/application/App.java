@@ -41,6 +41,9 @@ public class App {
 		seller.setName("Marta wanre");
 		sellerDao.update(seller);
 
+		
+		System.out.println("Seller DELETE");
+		sellerDao.deleteById(9);
 	}
 
 }
